@@ -13,6 +13,10 @@ app.use(require("morgan")("dev"));
 //Routes
 app.use(require("./src/routes/user.routes"));
 
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 //Seting up node server with databse
 const port = process.env.PORT || 4000;
 app.listen(
