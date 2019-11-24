@@ -1,13 +1,10 @@
 require("dotenv").config();
 const users = require("express").Router();
-
-const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 
 const User = require("../models/user.model");
-users.use(cors());
 
 users.post(
   "/register",
@@ -110,11 +107,5 @@ users.post(
     }
   }
 );
-
-users.get("/", async (req, res) => {
-  User.findAll().then(data => {
-    console.log(data.dataValues);
-  });
-});
 
 module.exports = users;
