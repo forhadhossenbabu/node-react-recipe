@@ -12,7 +12,9 @@ const sequelize = new Sequelize(
   }
 );
 
-console.log();
+// const sequelize = new Sequelize("node-react", "root", "devForhad.io123", {
+//   dialect: "mysql"
+// });
 
 module.exports = {
   sequelize,

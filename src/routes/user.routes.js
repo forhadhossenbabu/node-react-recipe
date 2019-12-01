@@ -1,4 +1,3 @@
-require("dotenv").config();
 const users = require("express").Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -59,6 +58,7 @@ users.post(
     check("password").isLength({ min: 3 })
   ],
   async (req, res) => {
+    console.log(req.body);
     const { username, password } = req.body;
 
     const errors = validationResult(req);
@@ -88,7 +88,10 @@ users.post(
           .json({ status: false, message: "Incorrect Password" });
 
       let token = await jwt.sign(
-        existingUser.dataValues,
+        {
+          id: existingUser.dataValues.id,
+          username: existingUser.dataValues.username
+        },
         process.env.AUTH_SECRET,
         {
           expiresIn: 1440

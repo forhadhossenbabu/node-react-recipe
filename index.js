@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { sequelize } = require("./src/utils/database");
@@ -12,9 +13,12 @@ app.use(require("morgan")("dev"));
 
 //Routes
 app.use(require("./src/routes/user.routes"));
+app.use(require("./src/routes/recipe.routes"));
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send(
+    "<h1>Backend API Portion of the application is running.</h1> <br/> <h1>This is server side. You can visit client side over here https://node-react-recipe.netlify.com/</h1>"
+  );
 });
 
 //Seting up node server with databse
