@@ -17,12 +17,10 @@ recipe.get("/recipes", auth, async (req, res) => {
         existingRecipes: []
       });
 
-    setTimeout(() => {
-      res.status(200).json({
-        status: true,
-        existingRecipes
-      });
-    }, 3000);
+    res.status(200).json({
+      status: true,
+      existingRecipes
+    });
   } catch (excption) {
     console.log(excption);
     return res.status(400).send(excption);
@@ -37,11 +35,7 @@ recipe.get("/recipe/:id", auth, async (req, res) => {
       }
     });
 
-    setTimeout(() => {
-      res
-        .status(200)
-        .json({ status: true, recipe: idMatchedRecipe.dataValues });
-    }, 3000);
+    res.status(200).json({ status: true, recipe: idMatchedRecipe.dataValues });
   } catch (excption) {
     console.log(excption);
     res.status(400).send(excption);

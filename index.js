@@ -17,7 +17,7 @@ app.use(require("./src/routes/recipe.routes"));
 
 app.get("/", (req, res) => {
   res.send(
-    "<h1>Backend API Portion of the application is running.</h1> <br/> <h1>This is server side. You can visit client side over here https://node-react-recipe.netlify.com/</h1>"
+    "<h1>Backend API Portion of the application is running.</h1> <br/> <h1>This is server side. You can visit client side <a href='https://node-react-recipe.netlify.com/'>over here</a></h1>"
   );
 });
 
